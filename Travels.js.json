@@ -1,0 +1,28 @@
+function searchBus() {
+    let results = document.getElementById("results");
+
+    let buses = [
+        { name: "Volvo AC Sleeper", time: "9:30 PM", price: "₹1200" },
+        { name: "KSRTC Airavat", time: "10:15 PM", price: "₹980" },
+        { name: "Rajahamsa Executive", time: "11:00 PM", price: "₹750" }
+    ];
+
+    results.innerHTML = "<h2>Available Buses</h2>";
+
+    buses.forEach(bus => {
+        results.innerHTML += `
+        <div class="bus-card">
+            <div>
+                <h3>${bus.name}</h3>
+                <p>Departure: ${bus.time}</p>
+                <p>Fare: ${bus.price}</p>
+            </div>
+            <button onclick="bookBus('${bus.name}')">Book</button>
+        </div>
+        `;
+    });
+}
+
+function bookBus(bus) {
+    alert("Booking successful for " + bus + " 🎉");
+}
